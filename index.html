@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+
     <title>Hrml и CSS</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Сайт от Ани</h1>
-    </div>
-    
-</body>
+  </head>
+  <body>
+    <header>
+      <div id="logo" onclick="showIt('#top')">
+        <span>Lorem.</span>
+      </div>
+      <div id="about">
+        <a
+          href="#"
+          title="Перейти на страницу Возможности"
+          onclick="shownIt('#main')"
+          >Возможности</a
+        >
+        <a
+          href="#"
+          title="Перейти на страницу Преимущества"
+          onclick="shownIt('#overview')"
+          >Преимущества</a
+        >
+        <a
+          href="#"
+          title="Перейти на страницу Контакты"
+          onclick="shownIt('#contacts')"
+          >Контакты</a
+        >
+        <a href="#" title="Перейти на страницу FAQ" onclick="shownIt('#faq')"
+          >FAQ</a
+        >
+      </div>
+    </header>
+
+    <script>
+      function shownIt(tag) {
+          console.log('пук')
+          var showElement = document.getElementById(tag);
+          showElement.scrollIntoView({block: "center", behavior: "smooth"});
+      }
+
+      window.addEventListener('scroll', function(e) {
+          if (window.scrollY === 0 )
+          {
+              document.getElementsByTagName("header")[0].classList.remove("fixed");
+          } else{
+              document.getElementsByTagName("header")[0].classList.add("fixed");
+
+          }
+      });
+    </script>
+  </body>
 </html>
